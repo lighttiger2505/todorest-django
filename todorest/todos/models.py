@@ -9,3 +9,6 @@ class Todo(models.Model):
     name = models.CharField(max_length=128)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    owner = models.ForeignKey('auth.User',
+                              related_name='todos',
+                              on_delete=models.CASCADE)
